@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>{{video.snippet.title}}</ion-title>
+        <ion-buttons end>
+          <button (click)="shareVideo()" ion-button icon-only>
+            <ion-icon name="share"></ion-icon>
+          </button>
+        </ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="youtube-video">
+    <iframe *ngIf="video.id.videoId" [src]="videoUrl" frameborder="0" allowfullscreen="true"></iframe>
+        
+    <div padding>
+        <h2>{{video.snippet.title}}</h2>
+        <p>Publicado por <strong>{{video.snippet.channelTitle}}</strong></p>
+        <p [innerHtml]="video.snippet.description"></p>
+    </div>
+</ion-content>

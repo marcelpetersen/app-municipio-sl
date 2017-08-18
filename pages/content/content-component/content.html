@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card *ngFor="let content of contents">
+        <img src="http://45.55.37.120{{ content.images }}">
+        <ion-item text-wrap>
+            <h1 [innerHTML]="content.title"></h1>
+		</ion-item>
+		<ion-card-content>
+			<p>{{content.body}}</p>
+		</ion-card-content>
+
+		<!-- <ion-row no-padding>
+			<ion-col text-left>
+				<button ion-button icon-left clear (click)="favoritePost(content)">
+					<ion-icon name='heart'></ion-icon>
+					Like
+				</button>
+			</ion-col>
+			<ion-col text-right>
+				<button ion-button clear (click)="loadPost(post)">
+					Ver mas
+				</button>
+			</ion-col>
+		</ion-row> -->
+	</ion-card>
+	
+	 <!-- <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+	   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+	 </ion-infinite-scroll>  -->
+</ion-content>

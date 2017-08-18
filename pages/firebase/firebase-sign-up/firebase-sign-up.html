@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'SIGN_UP' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+  <div class="logo" padding-bottom>
+      <img src="assets/img/firebase.png" />
+  </div>
+  <form (submit)="signUp()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+
+      <div padding>
+        <button ion-button icon-left block color="light" [disabled]="!account.email || !account.password">
+          <ion-icon name="log-in"></ion-icon>
+          {{ 'SIGN_UP' | translate }}
+        </button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Santa Lucia</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 (click)="loadComponent('article-culture')"><ion-icon name="md-school"></ion-icon><br> Cultura</ion-col>
+      <ion-col col-6 (click)="loadComponent('article-builds')"><ion-icon name="md-hammer"></ion-icon><br> Obras</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 (click)="loadComponent('shop')"><ion-icon name="md-appstore"></ion-icon><br> Zonas Comerciales</ion-col>
+      <ion-col col-6 (click)="loadComponent('activity')"><ion-icon name="md-images"></ion-icon><br> Actividades</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 (click)="loadComponent('article')"><ion-icon name="md-list-box"></ion-icon><br> Noticias</ion-col>
+      <ion-col col-6 (click)="loadComponent('event')"><ion-icon name="md-calendar"></ion-icon><br> Eventos</ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button full color="red">Aviso importante !</button>
+
+  <!-- <ion-card *ngFor="let post of posts; let isFirst = first" [class.first]="isFirst">
+    <img src="http://45.55.37.120{{ post.images }}">
+    
+    <ion-item text-wrap (click)="loadPost(post)">
+      <h1 [innerHTML]="post.title"></h1>    
+    </ion-item>
+    
+    <ion-item text-wrap>
+      {{ post.category }}    
+		</ion-item>
+
+    <ion-card-content>
+      <p>{{post.dropline | trimHTML | truncate: 100 }}</p>
+    </ion-card-content>
+  </ion-card> -->
+  
+   <!-- <ion-list>
+    <ion-item *ngFor="let page of pages" (tap)="openPage(page)">
+      <ion-icon [name]="page.icon" item-left></ion-icon>
+      {{page.title | translate}}
+      <ion-note item-right>
+      {{page.note}}
+      </ion-note>
+    </ion-item>
+  </ion-list>  -->
+
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-split-pane>
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>{{'MENU' | translate}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item ion-item *ngFor="let page of pages" (tap)="openPage(page)">
+        <ion-icon [name]="page.icon" item-left></ion-icon>
+        {{page.title | translate}}
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-nav [root]="rootPage" main #content></ion-nav>
+
+</ion-split-pane>

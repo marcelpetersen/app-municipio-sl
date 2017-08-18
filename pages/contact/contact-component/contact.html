@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Contacto</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item center>
+      <img src="assets/img/municipio-frente.jpg">
+    </ion-item>
+    <ion-item>
+      <ion-icon name="md-pin" item-left></ion-icon>
+     Aberastain 590 Sur 
+    </ion-item>
+    <ion-item>
+      <ion-icon name="md-navigate" item-left></ion-icon>
+     Santa Lucía
+    </ion-item>
+    <ion-item>
+      <ion-icon name="md-map" item-left></ion-icon>
+     San Juan / Argentina
+    </ion-item>
+    <ion-item>
+      <ion-icon name="md-call" item-left></ion-icon>
+     +54 (0264) 4250482
+    </ion-item>
+  </ion-list>
+
+  <form (submit)="sendEmail()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Asunto</ion-label>
+        <ion-input type="text" [(ngModel)]="email.subject" name="subject"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Mensaje</ion-label>
+        <ion-textarea rows="3" [(ngModel)]="email.body" name="body"></ion-textarea>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>Enviar Email</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

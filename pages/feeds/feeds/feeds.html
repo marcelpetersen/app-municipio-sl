@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>{{title}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<section padding>
+		<h2>{{title}}</h2>
+		<p>{{description}}</p>
+		<div center text-center>
+			<img [src]="image" *ngIf="image" />
+		</div>
+	</section>
+	<ion-list>
+		<ion-item *ngFor="let feed of feeds" (click)="loadFeed(feed)">
+			<h2>{{feed.title}}</h2>
+			<p>{{feed.summary}}</p>
+			<button ion-button item-right outline>Read</button>
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>{{feed.title}}</ion-title>
+		<ion-buttons end>
+	      <button (tap)="shareFeed()" ion-button icon-only>
+	        <ion-icon name="share"></ion-icon>
+	      </button>
+	    </ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<section padding>
+		<h1 [innerHtml]=feed.title></h1>
+		<!--<div>{{feed.pubDate | date}}</div>-->
+	</section>
+
+    <video id="video" [src]="feed.enclosure.url" controls autoplay *ngIf="feed.enclosure && feed.enclosure.type === 'video/mp4' "></video>
+    <audio id="audio" [src]="feed.enclosure.url" controls autoplay *ngIf="feed.enclosure && feed.enclosure.type === 'audio/mpeg' "></audio>
+	<img [src]="feed.enclosure.url" *ngIf="feed.enclosure && feed.enclosure.type === 'image/jpeg' " />
+
+	<section padding [innerHtml]="feed.description"></section>
+
+	<button ion-button full (click)=previewFeed()>Preview</button>
+</ion-content>

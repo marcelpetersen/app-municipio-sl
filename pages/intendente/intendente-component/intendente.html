@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Intendente</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="page-contact">
+  <ion-list>
+    <ion-item center>
+      <img src="assets/img/intendente.jpg">
+    </ion-item>
+    <ion-item>
+      <ion-icon name="person" item-left></ion-icon>
+      Marcelo Orrego
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-twitter" item-left></ion-icon>
+      @MarceloOrrego
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" item-left></ion-icon>
+      marceloorrego@gmail.com
+    </ion-item>
+    <ion-item>
+      <ion-icon name="logo-facebook" item-left></ion-icon>
+      facebook.com/MarceloOrrego
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-content>
+      Nació en Santa Lucía y vivió toda la adolescencia en el departamento. Actualmente reside en el Departamento.
+
+Se afilió al Partido Justicialista con 16 años, en carácter de afiliado adherente. Militó en la Universidad Nacional de Córdoba en la JUP (Juventud Universitaria Peronista). También en su estadía en Buenos Aires militó en la Circunscripción 11º de Capital Federal, Partido Justicialista.
+
+En el año 2000 como estudiante en la Provincia de Córdoba  creó una “empresa” Varsity  (Servicios para Profesionales y actividades Empresarias).
+
+Obtuvo en el año 2001 el título de Abogado en la Universidad Nacional de Córdoba.
+
+Desde el año 2001 al 2005 fue Jefe de Asesores de Roberto Basualdo en la Cámara de Diputados de la Nación. Participó de las Comisiones de Comercio, Minería, Finanzas, Deportes, Economía, Discapacidad y la Comisión Bicameral Parlamentaria conjunta Argentino – Chilena, de ese cuerpo.
+    </ion-card-content>
+</ion-card>
+
+  <form (submit)="sendEmail()">
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Asunto</ion-label>
+        <ion-input type="text" [(ngModel)]="email.subject" name="subject"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Mensaje</ion-label>
+        <ion-textarea rows="3" [(ngModel)]="email.body" name="body"></ion-textarea>
+      </ion-item>
+
+      <div padding>
+        <button ion-button color="primary" block>Enviar Email</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>

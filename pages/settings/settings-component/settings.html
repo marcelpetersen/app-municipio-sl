@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{'SETTINGS' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="grid-basic-page">
+  <ion-list>
+    <ion-list-header>
+    {{'LANGUAGE' | translate}}
+    </ion-list-header>
+    <ion-item>
+    <ion-label>{{'LANGUAGE' | translate}}</ion-label>
+    <ion-select [(ngModel)]="language" (ionChange)=selectLanguage()>
+      <ion-option value="en">{{'ENGLISH' | translate}}</ion-option>
+      <ion-option value="de">{{'GERMAN' | translate}}</ion-option>
+      <ion-option value="fr">{{'FRENCH' | translate}}</ion-option>
+    </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

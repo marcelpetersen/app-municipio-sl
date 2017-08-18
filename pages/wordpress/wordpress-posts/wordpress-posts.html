@@ -1,0 +1,54 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons start>
+			<button menuToggle>
+				<ion-icon name="menu"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-title *ngIf="!category">{{'POSTS' | translate}}</ion-title>
+		<ion-title *ngIf="category">{{category.name}} <span *ngIf="category.count">({{category.count}})</span></ion-title>
+		<ion-buttons end>
+	      <button (tap)="toggleSearchbar()" ion-button icon-only>
+	        <ion-icon name="search"></ion-icon>
+	      </button>
+	    </ion-buttons>
+	</ion-navbar>
+	<ion-toolbar [hidden]="hideSearchbar">
+		<ion-searchbar [(ngModel)]="search" (ionInput)="searchPosts()" debounce=500></ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-card *ngFor="let post of posts">
+        <ion-item text-wrap (click)="loadPost(post)">
+            <h1 [innerHTML]="post.title"></h1>
+            <!-- <h4 class="date">{{post.date | date: 'fullDate'}}</h4> -->
+		</ion-item>
+		<!--<wordpress-feature-media *ngIf="post.featured_media" [id]="post.featured_media" (click)="loadPost(post)"></wordpress-feature-media>
+		<ion-item *ngIf="post['_embedded'] && post['_embedded'].author && post['_embedded'].author[0] && post['_embedded'].author[0].avatar_urls">
+		    <ion-avatar item-left>
+		        <img [src]="post['_embedded'].author[0].avatar_urls[96]">
+		    </ion-avatar>
+		    <h2 (click)="getAuthorPosts(post.author)">{{post['_embedded'].author[0].name}}</h2>
+		</ion-item>-->
+		<ion-card-content>
+			<p>{{post.dropline | trimHTML | truncate: 100 }}</p>
+		</ion-card-content>
+		<ion-row no-padding>
+			<ion-col text-left>
+				<button ion-button icon-left clear (click)="favoritePost(post)">
+					<ion-icon name='heart'></ion-icon>
+					Favorite
+				</button>
+			</ion-col>
+			<ion-col text-right>
+				<button ion-button clear (click)="loadPost(post)">
+					Read
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+	   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+	 </ion-infinite-scroll>
+</ion-content>

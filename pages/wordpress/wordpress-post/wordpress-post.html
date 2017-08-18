@@ -1,0 +1,48 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title *ngIf="post">{{post.title}}</ion-title>
+		<ion-buttons end>
+	      <button (tap)="sharePost()" ion-button icon-only>
+	        <ion-icon name="share"></ion-icon>
+	      </button>
+	    </ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="post">
+  <ion-list *ngIf="post">
+    <ion-card>
+        <ion-item text-wrap>
+						<h1 [innerHTML]="post.title"></h1>
+            <!-- <h4 class="date">{{post.date | date: 'fullDate'}}</h4> -->
+        </ion-item>
+        <!--<wordpress-feature-media *ngIf="post.featured_media" [id]="post.featured_media"></wordpress-feature-media>-->
+		   <!-- <ion-item *ngIf="authorData && authorData.avatar_urls">
+		    <ion-avatar item-left>
+		        <img [src]="authorData.avatar_urls[96]">
+		    </ion-avatar>
+		    <h2>{{authorData.name}}</h2>
+		</ion-item>    -->
+    </ion-card>
+
+    <ion-card text-wrap *ngIf="post.body">
+        {{post.body}}
+    </ion-card>
+
+	<button ion-button full (click)=previewPost()>Preview</button>
+
+	<!-- <ion-list *ngIf="comments">
+	  <ion-item-divider light>Comments</ion-item-divider>
+	  <ion-item text-wrap *ngFor="let comment of comments">
+	    <ion-avatar item-left>
+	      <img [src]="comment.author_avatar_urls[96]">
+	    </ion-avatar>
+	    <h2>{{comment.author_name}}</h2>
+	    <p [innerHTML]="comment.content.rendered"></p>
+	  </ion-item>
+	</ion-list> -->
+  </ion-list>
+</ion-content>

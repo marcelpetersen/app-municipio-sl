@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Firebase</ion-title>
+    <ion-buttons *ngIf="auth" end>
+        <button (click)="logout()" ion-button icon-only>
+          <ion-icon name="log-out"></ion-icon>
+          Logout
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding text-center>
+  <div *ngIf="!auth || (auth && !auth.photoURL)" class="logo" padding-bottom>
+      <img src="assets/img/firebase.png" />
+  </div>
+
+  <div *ngIf="auth && !loading">
+    <div *ngIf="auth.photoURL" margin-bottom class="user-logo" [ngStyle]="{'background-image': 'url(' + auth.photoURL + ')'}"></div>
+    <div padding-bottom>Welcome <span *ngIf="auth.displayName">{{auth.displayName}}</span> <span *ngIf="auth.email">({{auth.email}})</span></div>
+    <button ion-button icon-left block color="light" (click)="logout()">
+      <ion-icon name="log-out"></ion-icon>
+      {{ 'LOGOUT' | translate }}
+    </button>
+  </div>
+
+  <div *ngIf="!auth && !loading">
+    <button ion-button icon-left block outline class="facebook-btn" (click)="loginWithFacebook()">
+      <ion-icon name="logo-facebook"></ion-icon>
+      Log In with Facebook
+    </button>
+    <button ion-button icon-left block color="light" class="login-btn" (click)="login()">
+      <ion-icon name="contact"></ion-icon>
+      {{ 'LOGIN' | translate }}
+    </button>
+    <button ion-button icon-left block clear color="dark" class="action-btn" (click)="signUp()">
+      <ion-icon name="add"></ion-icon>
+      {{ 'SIGN_UP' | translate }}
+    </button>
+    <button ion-button icon-left block clear color="dark" class="action-btn" (click)="resetPassword()">
+      <ion-icon name="send"></ion-icon>
+      {{ 'RESET_PASSWORD' | translate }}
+    </button>
+  </div>
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-title>{{'BARCODE_SCANNER' | translate}}</ion-title>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<button ion-button icon-right block outline (click)="scan()">
+		Scan
+		<ion-icon name="barcode"></ion-icon>
+	</button>
+</ion-content>
+

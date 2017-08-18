@@ -1,0 +1,11 @@
+{
+    "title": "Teléfonos útiles",
+    "body": "Listado de telefonos utiles de nuestro hermoso departamento.",
+    "images": "assets/img/phones.jpg",
+    "list": [
+        { "icon": "call", "item": "Emergencias: 911" },
+        { "icon": "call", "item": "Comisaría 5ta: 4250040" },
+        { "icon": "call", "item": "Comisaría 29na: 011" },
+        { "icon": "call", "item": "NACUSI alambrado publico: 4283337" }
+    ]
+}

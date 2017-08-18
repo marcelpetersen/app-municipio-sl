@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar>
+		<button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title *ngIf="category">{{category.title}}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="category">
+	<section padding>
+		<h2>{{category.title}}</h2>
+		<p>{{category.description}}</p>
+	</section>
+	<ion-list>
+		<ion-item *ngFor="let item of category.items" (click)="loadFeeds(item.url)">
+			<h2>{{item.title}}</h2>
+			<p>{{item.description}}</p>
+			<button ion-button item-right outline>Read</button>
+		</ion-item>
+	</ion-list>
+</ion-content>

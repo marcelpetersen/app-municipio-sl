@@ -1,0 +1,21 @@
+<ion-content scroll="false" class="page-welcome">
+  <div class="facebook-bg"></div>
+  <div class="facebook-info">
+  <div *ngIf="!user" class="facebook-logo"></div>
+    <div *ngIf="user && user.picture" class="facebook-logo" [ngStyle]="{'background-image': 'url(' + user.picture + ')'}"></div>
+    <div class="facebook-intro">
+      <span *ngIf="!user">Facebook</span>
+      <span *ngIf="user">Hello {{ user.name }}</span>
+    </div>
+    <div class="facebook-email" *ngIf="user">{{ user.email }}</div>
+  </div>
+  <div padding>
+    <button *ngIf="!user" color="light" ion-button icon-left block (click)="login()">
+      <ion-icon name="logo-facebook"></ion-icon>
+      {{ 'LOGIN' | translate }}</button>
+    <button *ngIf="user" color="light" ion-button icon-left block (click)="logout()">
+      <ion-icon name="logo-facebook"></ion-icon>
+      {{ 'LOGOUT' | translate }}
+    </button>
+  </div>
+</ion-content>
